@@ -17,7 +17,7 @@
 About
 -----
 
-**Alpha development. Not currently usable.**
+**Alpha concept development. Not currently usable.**
 
 Modality is a framework which supports hardware product specification, analysis,
 design, verification, and validation in the new product development process,
@@ -53,8 +53,8 @@ hardware products.
 
 The framework should help to create test suites used to:
 
- - verify specifications realize intended product features
- - generate actionable tests, for engineering or MFG QA use
+- verify specifications realize intended product features
+- generate actionable tests, for engineering or MFG QA use
 
 Particularly, it should be useful to develop test suites for:
 
@@ -62,6 +62,9 @@ Particularly, it should be useful to develop test suites for:
 2. adding new features to existing designs
 3. design verification and validation testing
 4. performing functional and/or acceptance testing
+
+Motivation
+----------
 
 For example, in the 'NPI' or 'New Product Introduction' phase. Design changes must
 often be made to realize features or to improve manufacturability. Even when using
@@ -73,12 +76,13 @@ Also, when hardware designers work with external teams, like a CM team, the CM t
 must come up to speed on the design. But, it is difficult for non-dedicated staff
 who were not involved in the design process to fully comprehend a hardware product
 as a system. Clearly defined test suites for subassembly and system reviews are
-helpful if they exist, but usually they do not exist and creation is non-standard.
+helpful if they exist. But, usually early in the design phase they do not exist
+and how to go about creating them is non-standard.
 
 Generally, a reliance on individual talents and heroics of individuals and
 the responsible designers is how these issues are overcome. Test suites built
 with Modality should help to reduce reliance on individual heroics and instead
-help to formalize tests to standardize processes and reviews.
+help to formalize a standardized process for tests and system reviews.
 
 Common types of issues that test suites built with Modality should help address
 include:
