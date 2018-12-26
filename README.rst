@@ -23,26 +23,16 @@ Modality is a framework which supports hardware product specification, analysis,
 design, verification, and validation in the new product development process,
 as viewed from a systems engineering perspective.
 
-It integrates concepts from MBSE (Model Based Systems Engineering) and OOSEM
-(Object-Oriented Systems Engineering Method) along with Sys.ML
-(Systems Modeling Language) to enable describing simple to complex systems that
+It integrates concepts from `MBSE (Model Based Systems Engineering) <https://en.wikipedia.org/wiki/Model-based_systems_engineering>`_ and OOSEM
+(Object-Oriented Systems Engineering Method) along with `Sys.ML
+(Systems Modeling Language) <https://sysml.org/sysml-faq/>`_ to enable describing simple to complex systems that
 may include hardware, software, data, personnel, procedures, and facilities.
 
 Ultimately, it's core use case is to assist in building test suites used for
 product design verification, validation, unit, and system testing.
 
-**Terminology**
-
-Design verification is defined as, "confirmation by examination and provision of
-objective evidence that specified requirements have been fulfilled."
-
-Design validation is, "establishing by objective evidence that device specifications
-conform with user needs and intended use(s)."
-
-Simply put, verification confirms that the design output meets the design input
-requirements, while validation ensures that user needs are met by the product.
-
 Development of Modality is sponsored by `BOM Quote Manufacturing <https://www.bomquote.com>`_.
+
 
 Goals
 ----------
@@ -101,3 +91,39 @@ Unclear Specifications
 Unclear Relations
 
 - Failing to formally identify interconnected parts and dependencies
+
+
+Terminology
+------------
+
+Design verification is defined as, "confirmation by examination and provision of
+objective evidence that specified requirements have been fulfilled."
+
+Design validation is, "establishing by objective evidence that device specifications
+conform with user needs and intended use(s)."
+
+Simply put, verification confirms that the design output meets the design input
+requirements, while validation ensures that user needs are met by the product.
+
+
+System/Subsystem:
+A `system` means a product.  `Subsystems` mean parts that compose the product.
+
+.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/system_subsystem.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+
+
+Control model/Plant model:
+`Subsystems` are categorized into two types:
+
+1. control models which control subsystems
+2. plant models which are controlled by control models
+
+.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/control_model_plant_model.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+
+
+Interface:
+An `interface` means a relation between plant models in a subsystem.
+
+.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/subsystem_interfaces.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+
+
