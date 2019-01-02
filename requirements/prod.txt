@@ -1,4 +1,5 @@
-
+git+git://github.com/bmjjr/pyuml2.git@example/sysml
+pyecore
 pint==0.8.1
 pyexcel==0.5.9.1
 pyexcel-io==0.5.10
