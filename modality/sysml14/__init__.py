@@ -22,15 +22,15 @@ from . import portsandflows
 from . import modelelements
 from . import requirements
 
-from pyuml2.uml import ActivityEdge, ObjectNode, Parameter, ParameterSet, \
-                        Abstraction, ActivityPartition, Property, Connector, \
-                        Class, InstanceSpecification, Behavior, Operation, \
-                        ConnectorEnd, Classifier, DirectedRelationship, \
-                        AcceptEventAction, ChangeEvent, Comment, Dependency, \
-                        Port, Trigger, Generalization, InformationFlow, \
-                        ValueSpecification, Abstraction, Element, DataType, \
-                        Interface, StructuralFeature, Feature, \
-                        InvocationAction, NamedElement
+from pyuml2.uml import (ActivityEdge, ObjectNode, Parameter, ParameterSet,
+                        Abstraction, ActivityPartition, Property, Connector,
+                        Class, InstanceSpecification, Behavior, Operation,
+                        ConnectorEnd, Classifier, DirectedRelationship,
+                        AcceptEventAction, ChangeEvent, Comment, Dependency,
+                        Port, Trigger, Generalization, InformationFlow,
+                        ValueSpecification, Element, DataType,
+                        Interface, StructuralFeature, Feature,
+                        InvocationAction, NamedElement)
 
 
 __all__ = ['Dummy']

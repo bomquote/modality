@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from .modelelements import getEClassifier, eClassifiers
 from .modelelements import name, nsURI, nsPrefix, eClass
 from .modelelements import Conform, ElementGroup, Expose, Problem, Rationale, Stakeholder, View, Viewpoint

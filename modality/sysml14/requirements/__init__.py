@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from .requirements import getEClassifier, eClassifiers
 from .requirements import name, nsURI, nsPrefix, eClass
 from .requirements import Copy, Trace, Requirement, DeriveReqt, Refine, Satisfy, TestCase, Verify

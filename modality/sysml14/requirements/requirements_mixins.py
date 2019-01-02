@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Mixins to be implemented by user."""
 from pyecore.ecore import EDerivedCollection
 

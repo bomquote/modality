@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from .portsandflows import getEClassifier, eClassifiers
 from .portsandflows import name, nsURI, nsPrefix, eClass
 from .portsandflows import FeatureDirection, AcceptChangeStructuralFeatureEventAction, ChangeStructuralFeatureEvent, DirectedFeature, FlowProperty, FullPort, InterfaceBlock, InvocationOnNestedPortAction, ItemFlow, ProxyPort, TriggerOnNestedPort, FlowDirection
