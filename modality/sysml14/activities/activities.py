@@ -3,12 +3,12 @@
 from functools import partial
 import pyecore.ecore as Ecore
 from pyecore.ecore import *
-from modality.sysml14 import sysml14_mixins as _user_module
+from . import activities_mixins as _user_module
 
 
-name = 'activities'
-nsURI = 'http://www.eclipse.org/papyrus/sysml/1.4/SysML/Activities'
-nsPrefix = 'Activities'
+name = "activities"
+nsURI = "http://www.eclipse.org/papyrus/sysml/1.4/SysML/Activities"
+nsPrefix = "Activities"
 
 eClass = EPackage(name=name, nsURI=nsURI, nsPrefix=nsPrefix)
 
@@ -38,20 +38,29 @@ class Rate(_user_module.RateMixin, EObject, metaclass=MetaEClass):
             In particular, the denominator for units used in the rate
             property must be time units.
           """
+
     base_ActivityEdge = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     base_ObjectNode = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     base_Parameter = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    rate = EReference(ordered=False, unique=True,
-                      containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    rate = EReference(ordered=False, unique=True, containment=False, derived=False)
 
     def __init__(
-            self, *, base_ActivityEdge=None, base_ObjectNode=None,
-            base_Parameter=None, rate=None, **kwargs):
+        self,
+        *,
+        base_ActivityEdge=None,
+        base_ObjectNode=None,
+        base_Parameter=None,
+        rate=None,
+        **kwargs,
+    ):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -68,8 +77,7 @@ class Rate(_user_module.RateMixin, EObject, metaclass=MetaEClass):
             self.rate = rate
 
 
-class ControlOperator(
-        _user_module.ControlOperatorMixin, EObject, metaclass=MetaEClass):
+class ControlOperator(_user_module.ControlOperatorMixin, EObject, metaclass=MetaEClass):
     """
     A control operator is a behavior that is intended to represent an
     arbitrarily complex logical operator that can be used to enable
@@ -80,14 +88,17 @@ class ControlOperator(
     typed by ControlValue. This stereotype also applies to operations
     with the same semantics.
     """
+
     base_Behavior = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     base_Operation = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Behavior=None, base_Operation=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -114,12 +125,14 @@ class NoBuffer(_user_module.NoBufferMixin, EObject, metaclass=MetaEClass):
     by outgoing edges, or action for input pins, are held until they
     can leave the object node.
     """
+
     base_ObjectNode = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_ObjectNode=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -135,12 +148,14 @@ class Optional(_user_module.OptionalMixin, EObject, metaclass=MetaEClass):
     or end execution. Otherwise, the lower multiplicity must be greater
     than zero, which is called “required.”
     """
+
     base_Parameter = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Parameter=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -169,12 +184,14 @@ class Overwrite(_user_module.OverwriteMixin, EObject, metaclass=MetaEClass):
     specifically, tokens arriving at object nodes do not replace
     ones that are already there.
     """
+
     base_ObjectNode = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_ObjectNode=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -182,8 +199,7 @@ class Overwrite(_user_module.OverwriteMixin, EObject, metaclass=MetaEClass):
             self.base_ObjectNode = base_ObjectNode
 
 
-class Probability(
-        _user_module.ProbabilityMixin, EObject, metaclass=MetaEClass):
+class Probability(_user_module.ProbabilityMixin, EObject, metaclass=MetaEClass):
     """
     When the «probability» stereotype is applied to edges coming out
     of decision nodes and object nodes, it provides an expression
@@ -196,18 +212,27 @@ class Probability(
     to one for output parameter sets of the same behavior at the time
     the probabilities are used.
     """
+
     base_ActivityEdge = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     base_ParameterSet = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    probability = EReference(ordered=False, unique=True,
-                             containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    probability = EReference(
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(
-            self, *, base_ActivityEdge=None, base_ParameterSet=None,
-            probability=None, **kwargs):
+        self,
+        *,
+        base_ActivityEdge=None,
+        base_ParameterSet=None,
+        probability=None,
+        **kwargs,
+    ):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 

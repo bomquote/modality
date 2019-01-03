@@ -11,8 +11,7 @@ class AcceptChangeStructuralFeatureEventActionMixin:
 class ChangeStructuralFeatureEventMixin:
     """User defined mixin class for ChangeStructuralFeatureEvent."""
 
-    def __init__(
-            self, *, base_ChangeEvent=None, structuralFeature=None, **kwargs):
+    def __init__(self, *, base_ChangeEvent=None, structuralFeature=None, **kwargs):
         super().__init__()
 
 
@@ -31,8 +30,7 @@ class FlowPropertyMixin:
 
     def get_icon(self):
 
-        raise NotImplementedError(
-            'operation get_icon(...) not yet implemented')
+        raise NotImplementedError("operation get_icon(...) not yet implemented")
 
 
 class FullPortMixin:
@@ -45,8 +43,7 @@ class FullPortMixin:
 class ItemFlowMixin:
     """User defined mixin class for ItemFlow."""
 
-    def __init__(
-            self, *, base_InformationFlow=None, itemProperty=None, **kwargs):
+    def __init__(self, *, base_InformationFlow=None, itemProperty=None, **kwargs):
         super().__init__()
 
 
@@ -67,8 +64,7 @@ class InterfaceBlockMixin:
 class InvocationOnNestedPortActionMixin:
     """User defined mixin class for InvocationOnNestedPortAction."""
 
-    def __init__(
-            self, *, base_InvocationAction=None, onNestedPort=None, **kwargs):
+    def __init__(self, *, base_InvocationAction=None, onNestedPort=None, **kwargs):
         super().__init__(**kwargs)
 
 

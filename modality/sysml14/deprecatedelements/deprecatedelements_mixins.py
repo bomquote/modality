@@ -6,16 +6,14 @@ class FlowPortMixin:
 
     @property
     def isAtomic(self):
-        raise NotImplementedError('Missing implementation for isAtomic')
+        raise NotImplementedError("Missing implementation for isAtomic")
 
-    def __init__(
-            self, *, base_Port=None, direction=None, isAtomic=None, **kwargs):
+    def __init__(self, *, base_Port=None, direction=None, isAtomic=None, **kwargs):
         super().__init__()
 
     def get_icon(self):
 
-        raise NotImplementedError(
-            'operation get_icon(...) not yet implemented')
+        raise NotImplementedError("operation get_icon(...) not yet implemented")
 
 
 class FlowSpecificationMixin:
@@ -27,4 +25,5 @@ class FlowSpecificationMixin:
     def get_flow_properties(self):
 
         raise NotImplementedError(
-            'operation get_flow_properties(...) not yet implemented')
+            "operation get_flow_properties(...) not yet implemented"
+        )

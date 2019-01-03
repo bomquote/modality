@@ -2,6 +2,7 @@
 """Mixins to be implemented by user."""
 from pyecore.ecore import EDerivedCollection
 
+
 class DerivedDerived(EDerivedCollection):
     pass
 
@@ -31,12 +32,23 @@ class RequirementMixin:
 
     @property
     def master(self):
-        raise NotImplementedError('Missing implementation for master')
+        raise NotImplementedError("Missing implementation for master")
 
     def __init__(
-            self, *, base_Class=None, derived=None, derivedFrom=None, id=None,
-            master=None, refinedBy=None, satisfiedBy=None, text=None,
-            tracedTo=None, verifiedBy=None, **kwargs):
+        self,
+        *,
+        base_Class=None,
+        derived=None,
+        derivedFrom=None,
+        id=None,
+        master=None,
+        refinedBy=None,
+        satisfiedBy=None,
+        text=None,
+        tracedTo=None,
+        verifiedBy=None,
+        **kwargs,
+    ):
         super().__init__()
 
 
@@ -55,8 +67,7 @@ class TraceMixin:
 
     def get_traced_from(self, ref=None, result=None):
 
-        raise NotImplementedError(
-            'operation get_traced_from(...) not yet implemented')
+        raise NotImplementedError("operation get_traced_from(...) not yet implemented")
 
 
 class RefineMixin:
@@ -67,8 +78,7 @@ class RefineMixin:
 
     def get_refines(self, ref=None, result=None):
 
-        raise NotImplementedError(
-            'operation get_refines(...) not yet implemented')
+        raise NotImplementedError("operation get_refines(...) not yet implemented")
 
 
 class CopyMixin:
@@ -93,8 +103,7 @@ class SatisfyMixin:
 
     def get_satisfies(self, ref=None, result=None):
 
-        raise NotImplementedError(
-            'operation get_satisfies(...) not yet implemented')
+        raise NotImplementedError("operation get_satisfies(...) not yet implemented")
 
 
 class VerifyMixin:
@@ -105,5 +114,4 @@ class VerifyMixin:
 
     def get_verifies(self, ref=None, result=None):
 
-        raise NotImplementedError(
-            'operation get_verifies(...) not yet implemented')
+        raise NotImplementedError("operation get_verifies(...) not yet implemented")

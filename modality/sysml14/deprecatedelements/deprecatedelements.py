@@ -3,14 +3,14 @@
 from functools import partial
 import pyecore.ecore as Ecore
 from pyecore.ecore import *
-from pyuml2.types import Boolean
+from modality.pyuml2.types import Boolean
 from ..portsandflows import FlowDirection
-from modality.sysml14 import sysml14_mixins as _user_module
+from . import deprecatedelements_mixins as _user_module
 
 
-name = 'deprecatedelements'
-nsURI = 'http://www.eclipse.org/papyrus/sysml/1.4/SysML/DeprecatedElements'
-nsPrefix = 'DeprecatedElements'
+name = "deprecatedelements"
+nsURI = "http://www.eclipse.org/papyrus/sysml/1.4/SysML/DeprecatedElements"
+nsPrefix = "DeprecatedElements"
 
 eClass = EPackage(name=name, nsURI=nsURI, nsPrefix=nsPrefix)
 
@@ -34,18 +34,21 @@ class FlowPort(_user_module.FlowPortMixin, EObject, metaclass=MetaEClass):
     or to a connector that connects them with their owner’s internal parts
     (internal connector).
     """
-    direction = EAttribute(
-        eType=FlowDirection, derived=False, changeable=True,
-        default_value=FlowDirection.inout)
-    _isAtomic = EAttribute(eType=Boolean, derived=True,
-                           changeable=False, name='isAtomic', transient=True)
-    base_Port = EReference(ordered=False, unique=True,
-                           containment=False, derived=False)
 
-    def __init__(
-            self, *, base_Port=None, direction=None, isAtomic=None, **kwargs):
+    direction = EAttribute(
+        eType=FlowDirection,
+        derived=False,
+        changeable=True,
+        default_value=FlowDirection.inout,
+    )
+    _isAtomic = EAttribute(
+        eType=Boolean, derived=True, changeable=False, name="isAtomic", transient=True
+    )
+    base_Port = EReference(ordered=False, unique=True, containment=False, derived=False)
+
+    def __init__(self, *, base_Port=None, direction=None, isAtomic=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -60,18 +63,21 @@ class FlowPort(_user_module.FlowPortMixin, EObject, metaclass=MetaEClass):
 
 
 class FlowSpecification(
-        _user_module.FlowSpecificationMixin, EObject, metaclass=MetaEClass):
+    _user_module.FlowSpecificationMixin, EObject, metaclass=MetaEClass
+):
     """
     A FlowSpecification specifies inputs and outputs as a set of flow
     properties. A flow specification is used by flow ports to specify
     what items can flow via the port.
     """
+
     base_Interface = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Interface=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 

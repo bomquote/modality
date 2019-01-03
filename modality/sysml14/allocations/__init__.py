@@ -3,13 +3,19 @@ from .allocations import getEClassifier, eClassifiers
 from .allocations import name, nsURI, nsPrefix, eClass
 from .allocations import Allocate, AllocateActivityPartition
 
-from pyuml2.uml import DirectedRelationship, Abstraction, ActivityPartition, Property, Classifier
+from modality.pyuml2.uml import (
+    DirectedRelationship,
+    Abstraction,
+    ActivityPartition,
+    Property,
+    Classifier,
+)
 
 from . import allocations
 from .. import sysml14
 
 
-__all__ = ['Allocate', 'AllocateActivityPartition']
+__all__ = ["Allocate", "AllocateActivityPartition"]
 
 eSubpackages = []
 eSuperPackage = sysml14

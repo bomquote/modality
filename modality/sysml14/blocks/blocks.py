@@ -3,13 +3,13 @@
 from functools import partial
 import pyecore.ecore as Ecore
 from pyecore.ecore import *
-from pyuml2.types import UnlimitedNatural, Integer, Boolean
-from modality.sysml14 import sysml14_mixins as _user_module
+from modality.pyuml2.types import UnlimitedNatural, Integer, Boolean
+from . import blocks_mixins as _user_module
 
 
-name = 'blocks'
-nsURI = 'http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks'
-nsPrefix = 'Blocks'
+name = "blocks"
+nsURI = "http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks"
+nsPrefix = "Blocks"
 
 eClass = EPackage(name=name, nsURI=nsURI, nsPrefix=nsPrefix)
 
@@ -17,8 +17,7 @@ eClassifiers = {}
 getEClassifier = partial(Ecore.getEClassifier, searchspace=eClassifiers)
 
 
-class AdjunctProperty(
-        _user_module.AdjunctPropertyMixin, EObject, metaclass=MetaEClass):
+class AdjunctProperty(_user_module.AdjunctPropertyMixin, EObject, metaclass=MetaEClass):
     """
     The AdjunctProperty stereotype can be applied to properties to constrain
     their values to the values of connectors typed by association blocks, call
@@ -37,14 +36,15 @@ class AdjunctProperty(
      The keyword «adjunct» before a property name indicates the property is
      stereotyped by AdjunctProperty.
      """
+
     base_Property = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    principal = EReference(ordered=False, unique=True,
-                           containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    principal = EReference(ordered=False, unique=True, containment=False, derived=False)
 
     def __init__(self, *, base_Property=None, principal=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -56,7 +56,8 @@ class AdjunctProperty(
 
 
 class BindingConnector(
-        _user_module.BindingConnectorMixin, EObject, metaclass=MetaEClass):
+    _user_module.BindingConnectorMixin, EObject, metaclass=MetaEClass
+):
     """
     A Binding Connector is a connector which specifies that the properties
     at both ends of the connector have equal values. If the properties at
@@ -72,12 +73,14 @@ class BindingConnector(
     is used to represent such nested ends just as for nested ends of
     other SysML connectors.
     """
+
     base_Connector = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Connector=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -111,13 +114,15 @@ class Block(_user_module.BlockMixin, EObject, metaclass=MetaEClass):
     or its connected ends may specify the semantic interpretation of a
     specific connector.
     """
+
     isEncapsulated = EAttribute(eType=Boolean, derived=False, changeable=True)
-    base_Class = EReference(ordered=False, unique=True,
-                            containment=False, derived=False)
+    base_Class = EReference(
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Class=None, isEncapsulated=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -129,18 +134,20 @@ class Block(_user_module.BlockMixin, EObject, metaclass=MetaEClass):
 
 
 class EndPathMultiplicity(
-        _user_module.EndPathMultiplicityMixin, EObject, metaclass=MetaEClass):
+    _user_module.EndPathMultiplicityMixin, EObject, metaclass=MetaEClass
+):
 
-    lower = EAttribute(eType=Integer, derived=False,
-                       changeable=True, default_value='0')
-    upper = EAttribute(eType=UnlimitedNatural, derived=False,
-                       changeable=True, default_value='-1')
+    lower = EAttribute(eType=Integer, derived=False, changeable=True, default_value="0")
+    upper = EAttribute(
+        eType=UnlimitedNatural, derived=False, changeable=True, default_value="-1"
+    )
     base_Property = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Property=None, lower=None, upper=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -155,8 +162,8 @@ class EndPathMultiplicity(
 
 
 class ClassifierBehaviorProperty(
-        _user_module.ClassifierBehaviorPropertyMixin, EObject,
-        metaclass=MetaEClass):
+    _user_module.ClassifierBehaviorPropertyMixin, EObject, metaclass=MetaEClass
+):
     """
     The ClassifierBehaviorProperty stereotype can be applied to properties
     to constrain their values to be the executions of classifier behaviors.
@@ -164,12 +171,14 @@ class ClassifierBehaviorProperty(
     the executions of classifier behaviors invoked by instantiation of the
     block that owns the stereotyped property or one of its specializations.
     """
+
     base_Property = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Property=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -178,7 +187,8 @@ class ClassifierBehaviorProperty(
 
 
 class ConnectorProperty(
-        _user_module.ConnectorPropertyMixin, EObject, metaclass=MetaEClass):
+    _user_module.ConnectorPropertyMixin, EObject, metaclass=MetaEClass
+):
     """
     Connectors can be typed by association classes that are stereotyped by
     Block (association blocks). These connectors specify instances (links)
@@ -188,14 +198,15 @@ class ConnectorProperty(
     instances of the association block typing the connector referred to by
     the connector property.
     """
+
     base_Property = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    connector = EReference(ordered=False, unique=True,
-                           containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    connector = EReference(ordered=False, unique=True, containment=False, derived=False)
 
     def __init__(self, *, base_Property=None, connector=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -207,7 +218,8 @@ class ConnectorProperty(
 
 
 class DistributedProperty(
-        _user_module.DistributedPropertyMixin, EObject, metaclass=MetaEClass):
+    _user_module.DistributedPropertyMixin, EObject, metaclass=MetaEClass
+):
     """
     DistributedProperty is a stereotype of Property used to apply a
     probability distribution to the values of the property. Specific
@@ -215,12 +227,14 @@ class DistributedProperty(
     stereotype with the operands of the distributions represented by
     properties of those stereotype subclasses.
     """
+
     base_Property = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Property=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -230,16 +244,19 @@ class DistributedProperty(
 
 @abstract
 class ElementPropertyPath(
-        _user_module.ElementPropertyPathMixin, EObject, metaclass=MetaEClass):
+    _user_module.ElementPropertyPathMixin, EObject, metaclass=MetaEClass
+):
 
     base_Element = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     propertyPath = EReference(
-        ordered=True, unique=False, containment=False, derived=False, upper=-1)
+        ordered=True, unique=False, containment=False, derived=False, upper=-1
+    )
 
     def __init__(self, *, base_Element=None, propertyPath=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -251,7 +268,8 @@ class ElementPropertyPath(
 
 
 class ParticipantProperty(
-        _user_module.ParticipantPropertyMixin, EObject, metaclass=MetaEClass):
+    _user_module.ParticipantPropertyMixin, EObject, metaclass=MetaEClass
+):
     """
     The Block stereotype extends Class, so it can be applied to any
     specialization of Class, including Association Classes. These are
@@ -266,14 +284,15 @@ class ParticipantProperty(
     the value or object at the end of the link corresponding to this end of
     the association.
     """
+
     base_Property = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    end = EReference(ordered=False, unique=True,
-                     containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    end = EReference(ordered=False, unique=True, containment=False, derived=False)
 
     def __init__(self, *, base_Property=None, end=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -285,19 +304,22 @@ class ParticipantProperty(
 
 
 class PropertySpecificType(
-        _user_module.PropertySpecificTypeMixin, EObject, metaclass=MetaEClass):
+    _user_module.PropertySpecificTypeMixin, EObject, metaclass=MetaEClass
+):
     """
     The PropertySpecificType stereotype should automatically be applied to the
     classifier which types a property with a propertyspecific type. This classifier
     can contain definitions of new or redefined features which extend the original
     classifier referenced by the property-specific type.
     """
+
     base_Classifier = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Classifier=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -317,18 +339,18 @@ class ValueType(_user_module.ValueTypeMixin, EObject, metaclass=MetaEClass):
     a stereotype of UML DataType to establish a more neutral term for
     system values that may never be given a concrete data representation.
     """
-    base_DataType = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    quantityKind = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
-    unit = EReference(ordered=False, unique=True,
-                      containment=False, derived=False)
 
-    def __init__(
-            self, *, base_DataType=None, quantityKind=None, unit=None, **
-            kwargs):
+    base_DataType = EReference(
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    quantityKind = EReference(
+        ordered=False, unique=True, containment=False, derived=False
+    )
+    unit = EReference(ordered=False, unique=True, containment=False, derived=False)
+
+    def __init__(self, *, base_DataType=None, quantityKind=None, unit=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -344,26 +366,37 @@ class ValueType(_user_module.ValueTypeMixin, EObject, metaclass=MetaEClass):
 
 @abstract
 class DirectedRelationshipPropertyPath(
-        _user_module.DirectedRelationshipPropertyPathMixin, EObject,
-        metaclass=MetaEClass):
+    _user_module.DirectedRelationshipPropertyPathMixin, EObject, metaclass=MetaEClass
+):
 
     base_DirectedRelationship = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     sourceContext = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     sourcePropertyPath = EReference(
-        ordered=True, unique=False, containment=False, derived=False, upper=-1)
+        ordered=True, unique=False, containment=False, derived=False, upper=-1
+    )
     targetContext = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     targetPropertyPath = EReference(
-        ordered=True, unique=False, containment=False, derived=False, upper=-1)
+        ordered=True, unique=False, containment=False, derived=False, upper=-1
+    )
 
     def __init__(
-            self, *, base_DirectedRelationship=None, sourceContext=None,
-            sourcePropertyPath=None, targetContext=None,
-            targetPropertyPath=None, **kwargs):
+        self,
+        *,
+        base_DirectedRelationship=None,
+        sourceContext=None,
+        sourcePropertyPath=None,
+        targetContext=None,
+        targetPropertyPath=None,
+        **kwargs,
+    ):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -386,10 +419,15 @@ class DirectedRelationshipPropertyPath(
 class BoundReference(_user_module.BoundReferenceMixin, EndPathMultiplicity):
 
     bindingPath = EReference(
-        ordered=True, unique=False, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedBindingpath)
-    boundEnd = EReference(ordered=False, unique=True,
-                          containment=False, derived=False)
+        ordered=True,
+        unique=False,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedBindingpath,
+    )
+    boundEnd = EReference(ordered=False, unique=True, containment=False, derived=False)
 
     def __init__(self, *, bindingPath=None, boundEnd=None, **kwargs):
 
@@ -402,15 +440,16 @@ class BoundReference(_user_module.BoundReferenceMixin, EndPathMultiplicity):
             self.boundEnd = boundEnd
 
 
-class NestedConnectorEnd(
-        _user_module.NestedConnectorEndMixin, ElementPropertyPath):
+class NestedConnectorEnd(_user_module.NestedConnectorEndMixin, ElementPropertyPath):
     """
     The NestedConnectorEnd stereotype of UML ConnectorEnd extends a UML
     ConnectorEnd so that the connected property may be identified by a
     multi-level path of accessible properties from the block that owns the
     connector."""
+
     base_ConnectorEnd = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_ConnectorEnd=None, **kwargs):
 

@@ -6,8 +6,14 @@ class RateMixin:
     """User defined mixin class for Rate."""
 
     def __init__(
-            self, *, base_ActivityEdge=None, base_ObjectNode=None,
-            base_Parameter=None, rate=None, **kwargs):
+        self,
+        *,
+        base_ActivityEdge=None,
+        base_ObjectNode=None,
+        base_Parameter=None,
+        rate=None,
+        **kwargs,
+    ):
         super().__init__()
 
 
@@ -43,8 +49,13 @@ class ProbabilityMixin:
     """User defined mixin class for Probability."""
 
     def __init__(
-            self, *, base_ActivityEdge=None, base_ParameterSet=None,
-            probability=None, **kwargs):
+        self,
+        *,
+        base_ActivityEdge=None,
+        base_ParameterSet=None,
+        probability=None,
+        **kwargs,
+    ):
         super().__init__()
 
 

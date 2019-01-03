@@ -4,11 +4,11 @@ from functools import partial
 import pyecore.ecore as Ecore
 from pyecore.ecore import *
 from ..blocks import Block
-from modality.sysml14 import sysml14_mixins as _user_module
+from . import constraintblocks_mixins as _user_module
 
-name = 'constraintblocks'
-nsURI = 'http://www.eclipse.org/papyrus/sysml/1.4/SysML/ConstraintBlocks'
-nsPrefix = 'ConstraintBlocks'
+name = "constraintblocks"
+nsURI = "http://www.eclipse.org/papyrus/sysml/1.4/SysML/ConstraintBlocks"
+nsPrefix = "ConstraintBlocks"
 
 eClass = EPackage(name=name, nsURI=nsURI, nsPrefix=nsPrefix)
 

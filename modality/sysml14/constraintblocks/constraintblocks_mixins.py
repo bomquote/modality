@@ -10,5 +10,4 @@ class ConstraintBlockMixin:
 
     def get_parameters(self):
 
-        raise NotImplementedError(
-            'operation get_parameters(...) not yet implemented')
+        raise NotImplementedError("operation get_parameters(...) not yet implemented")

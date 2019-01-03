@@ -2,6 +2,7 @@
 """Mixins to be implemented by user."""
 from pyecore.ecore import EDerivedCollection
 
+
 class AdjunctPropertyMixin:
     """User defined mixin class for AdjunctProperty."""
 
@@ -24,18 +25,17 @@ class BlockMixin:
 
     def get_references(self):
         """@papyrus.req org.eclipse.papyrus.sysml14#REQ-SYSML14-Block-References"""
-        raise NotImplementedError(
-            'operation get_references(...) not yet implemented')
+        raise NotImplementedError("operation get_references(...) not yet implemented")
 
     def get_parts(self):
 
-        raise NotImplementedError(
-            'operation get_parts(...) not yet implemented')
+        raise NotImplementedError("operation get_parts(...) not yet implemented")
 
     def get_flow_properties(self):
 
         raise NotImplementedError(
-            'operation get_flow_properties(...) not yet implemented')
+            "operation get_flow_properties(...) not yet implemented"
+        )
 
 
 class EndPathMultiplicityMixin:
@@ -90,9 +90,7 @@ class PropertySpecificTypeMixin:
 class ValueTypeMixin:
     """User defined mixin class for ValueType."""
 
-    def __init__(
-            self, *, base_DataType=None, quantityKind=None, unit=None, **
-            kwargs):
+    def __init__(self, *, base_DataType=None, quantityKind=None, unit=None, **kwargs):
         super().__init__()
 
 
@@ -100,9 +98,15 @@ class DirectedRelationshipPropertyPathMixin:
     """User defined mixin class for DirectedRelationshipPropertyPath."""
 
     def __init__(
-            self, *, base_DirectedRelationship=None, sourceContext=None,
-            sourcePropertyPath=None, targetContext=None,
-            targetPropertyPath=None, **kwargs):
+        self,
+        *,
+        base_DirectedRelationship=None,
+        sourceContext=None,
+        sourcePropertyPath=None,
+        targetContext=None,
+        targetPropertyPath=None,
+        **kwargs,
+    ):
         super().__init__()
 
 

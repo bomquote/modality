@@ -4,14 +4,14 @@ from functools import partial
 import pyecore.ecore as Ecore
 from pyecore.ecore import *
 from ..blocks import DirectedRelationshipPropertyPath
-from pyuml2.standard import Trace as _Trace, Refine as _Refine
-from pyuml2.types import String
-from modality.sysml14 import sysml14_mixins as _user_module
+from modality.pyuml2.standard import Trace as _Trace, Refine as _Refine
+from modality.pyuml2.types import String
+from . import requirements_mixins as _user_module
 
 
-name = 'requirements'
-nsURI = 'http://www.eclipse.org/papyrus/sysml/1.4/SysML/Requirements'
-nsPrefix = 'Requirements'
+name = "requirements"
+nsURI = "http://www.eclipse.org/papyrus/sysml/1.4/SysML/Requirements"
+nsPrefix = "Requirements"
 
 eClass = EPackage(name=name, nsURI=nsURI, nsPrefix=nsPrefix)
 
@@ -19,8 +19,7 @@ eClassifiers = {}
 getEClassifier = partial(Ecore.getEClassifier, searchspace=eClassifiers)
 
 
-class Requirement(
-        _user_module.RequirementMixin, EObject, metaclass=MetaEClass):
+class Requirement(_user_module.RequirementMixin, EObject, metaclass=MetaEClass):
     """
     A requirement specifies a capability or condition that must (or should)
     be satisfied. A requirement may specify a function that a system must
@@ -28,38 +27,92 @@ class Requirement(
     are used to establish a contract between the customer (or other stakeholder)
     and those responsible for designing and implementing the system.
     """
+
     id = EAttribute(eType=String, derived=False, changeable=True)
     text = EAttribute(eType=String, derived=False, changeable=True)
-    base_Class = EReference(ordered=False, unique=True,
-                            containment=False, derived=False)
+    base_Class = EReference(
+        ordered=False, unique=True, containment=False, derived=False
+    )
     derived = EReference(
-        ordered=False, unique=True, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedDerived)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedDerived,
+    )
     derivedFrom = EReference(
-        ordered=False, unique=True, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedDerivedfrom)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedDerivedfrom,
+    )
     _master = EReference(
-        ordered=False, unique=True, containment=False, derived=True,
-        name='master', transient=True)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        name="master",
+        transient=True,
+    )
     refinedBy = EReference(
-        ordered=False, unique=True, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedRefinedby)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedRefinedby,
+    )
     satisfiedBy = EReference(
-        ordered=False, unique=True, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedSatisfiedby)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedSatisfiedby,
+    )
     tracedTo = EReference(
-        ordered=False, unique=True, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedTracedto)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedTracedto,
+    )
     verifiedBy = EReference(
-        ordered=False, unique=True, containment=False, derived=True, upper=-1,
-        transient=True, derived_class=_user_module.DerivedVerifiedby)
+        ordered=False,
+        unique=True,
+        containment=False,
+        derived=True,
+        upper=-1,
+        transient=True,
+        derived_class=_user_module.DerivedVerifiedby,
+    )
 
     def __init__(
-            self, *, base_Class=None, derived=None, derivedFrom=None, id=None,
-            master=None, refinedBy=None, satisfiedBy=None, text=None,
-            tracedTo=None, verifiedBy=None, **kwargs):
+        self,
+        *,
+        base_Class=None,
+        derived=None,
+        derivedFrom=None,
+        id=None,
+        master=None,
+        refinedBy=None,
+        satisfiedBy=None,
+        text=None,
+        tracedTo=None,
+        verifiedBy=None,
+        **kwargs,
+    ):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -98,14 +151,17 @@ class TestCase(_user_module.TestCaseMixin, EObject, metaclass=MetaEClass):
     """
     A test case is a method for verifying a requirement is satisfied.
     """
+
     base_Behavior = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
     base_Operation = EReference(
-        ordered=False, unique=True, containment=False, derived=False)
+        ordered=False, unique=True, containment=False, derived=False
+    )
 
     def __init__(self, *, base_Behavior=None, base_Operation=None, **kwargs):
         if kwargs:
-            raise AttributeError('unexpected arguments: {}'.format(kwargs))
+            raise AttributeError("unexpected arguments: {}".format(kwargs))
 
         super().__init__()
 
@@ -134,8 +190,7 @@ class Trace(_user_module.TraceMixin, DirectedRelationshipPropertyPath, _Trace):
         super().__init__(**kwargs)
 
 
-class Refine(
-        _user_module.RefineMixin, DirectedRelationshipPropertyPath, _Refine):
+class Refine(_user_module.RefineMixin, DirectedRelationshipPropertyPath, _Refine):
     """
     from _Refine:
     Specifies a refinement relationship between model elements at different

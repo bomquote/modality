@@ -4,12 +4,53 @@ from .sysml14 import name, nsURI, nsPrefix, eClass
 from .sysml14 import Dummy
 
 
-from .activities import Overwrite, ControlOperator, NoBuffer, Rate, Probability, Optional
+from .activities import (
+    Overwrite,
+    ControlOperator,
+    NoBuffer,
+    Rate,
+    Probability,
+    Optional,
+)
 from .allocations import AllocateActivityPartition, Allocate
-from .blocks import ConnectorProperty, ClassifierBehaviorProperty, DistributedProperty, NestedConnectorEnd, ParticipantProperty, DirectedRelationshipPropertyPath, Block, ValueType, AdjunctProperty, ElementPropertyPath, BindingConnector, PropertySpecificType, BoundReference, EndPathMultiplicity
+from .blocks import (
+    ConnectorProperty,
+    ClassifierBehaviorProperty,
+    DistributedProperty,
+    NestedConnectorEnd,
+    ParticipantProperty,
+    DirectedRelationshipPropertyPath,
+    Block,
+    ValueType,
+    AdjunctProperty,
+    ElementPropertyPath,
+    BindingConnector,
+    PropertySpecificType,
+    BoundReference,
+    EndPathMultiplicity,
+)
 from .deprecatedelements import FlowPort, FlowSpecification
-from .portsandflows import InvocationOnNestedPortAction, DirectedFeature, ItemFlow, ProxyPort, FlowProperty, AcceptChangeStructuralFeatureEventAction, ChangeStructuralFeatureEvent, TriggerOnNestedPort, FullPort
-from .modelelements import Expose, View, Viewpoint, Rationale, Problem, Stakeholder, ElementGroup, Conform
+from .portsandflows import (
+    InvocationOnNestedPortAction,
+    DirectedFeature,
+    ItemFlow,
+    ProxyPort,
+    FlowProperty,
+    AcceptChangeStructuralFeatureEventAction,
+    ChangeStructuralFeatureEvent,
+    TriggerOnNestedPort,
+    FullPort,
+)
+from .modelelements import (
+    Expose,
+    View,
+    Viewpoint,
+    Rationale,
+    Problem,
+    Stakeholder,
+    ElementGroup,
+    Conform,
+)
 from .requirements import Requirement, TestCase
 
 from . import sysml14
@@ -22,21 +63,53 @@ from . import portsandflows
 from . import modelelements
 from . import requirements
 
-from pyuml2.uml import (ActivityEdge, ObjectNode, Parameter, ParameterSet,
-                        Abstraction, ActivityPartition, Property, Connector,
-                        Class, InstanceSpecification, Behavior, Operation,
-                        ConnectorEnd, Classifier, DirectedRelationship,
-                        AcceptEventAction, ChangeEvent, Comment, Dependency,
-                        Port, Trigger, Generalization, InformationFlow,
-                        ValueSpecification, Element, DataType,
-                        Interface, StructuralFeature, Feature,
-                        InvocationAction, NamedElement)
+from modality.pyuml2.uml import (
+    ActivityEdge,
+    ObjectNode,
+    Parameter,
+    ParameterSet,
+    Abstraction,
+    ActivityPartition,
+    Property,
+    Connector,
+    Class,
+    InstanceSpecification,
+    Behavior,
+    Operation,
+    ConnectorEnd,
+    Classifier,
+    DirectedRelationship,
+    AcceptEventAction,
+    ChangeEvent,
+    Comment,
+    Dependency,
+    Port,
+    Trigger,
+    Generalization,
+    InformationFlow,
+    ValueSpecification,
+    Element,
+    DataType,
+    Interface,
+    StructuralFeature,
+    Feature,
+    InvocationAction,
+    NamedElement,
+)
 
 
-__all__ = ['Dummy']
+__all__ = ["Dummy"]
 
-eSubpackages = [activities, allocations, blocks, constraintblocks,
-                deprecatedelements, portsandflows, modelelements, requirements]
+eSubpackages = [
+    activities,
+    allocations,
+    blocks,
+    constraintblocks,
+    deprecatedelements,
+    portsandflows,
+    modelelements,
+    requirements,
+]
 eSuperPackage = None
 sysml14.eSubpackages = eSubpackages
 sysml14.eSuperPackage = eSuperPackage
@@ -82,7 +155,9 @@ DirectedRelationshipPropertyPath.targetContext.eType = Classifier
 DirectedRelationshipPropertyPath.targetPropertyPath.eType = Property
 FlowPort.base_Port.eType = Port
 FlowSpecification.base_Interface.eType = Interface
-AcceptChangeStructuralFeatureEventAction.base_AcceptEventAction.eType = AcceptEventAction
+AcceptChangeStructuralFeatureEventAction.base_AcceptEventAction.eType = (
+    AcceptEventAction
+)
 ChangeStructuralFeatureEvent.base_ChangeEvent.eType = ChangeEvent
 ChangeStructuralFeatureEvent.structuralFeature.eType = StructuralFeature
 DirectedFeature.base_Feature.eType = Feature

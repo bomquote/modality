@@ -1,20 +1,55 @@
 # -*- coding: utf-8 -*-
 from .blocks import getEClassifier, eClassifiers
 from .blocks import name, nsURI, nsPrefix, eClass
-from .blocks import AdjunctProperty, BindingConnector, Block, BoundReference, EndPathMultiplicity, ClassifierBehaviorProperty, ConnectorProperty, DistributedProperty, ElementPropertyPath, NestedConnectorEnd, ParticipantProperty, PropertySpecificType, ValueType, DirectedRelationshipPropertyPath
+from .blocks import (
+    AdjunctProperty,
+    BindingConnector,
+    Block,
+    BoundReference,
+    EndPathMultiplicity,
+    ClassifierBehaviorProperty,
+    ConnectorProperty,
+    DistributedProperty,
+    ElementPropertyPath,
+    NestedConnectorEnd,
+    ParticipantProperty,
+    PropertySpecificType,
+    ValueType,
+    DirectedRelationshipPropertyPath,
+)
 
-from pyuml2.uml import Connector, DataType, DirectedRelationship, Class, ConnectorEnd, InstanceSpecification, Property, Classifier, Element
+from modality.pyuml2.uml import (
+    Connector,
+    DataType,
+    DirectedRelationship,
+    Class,
+    ConnectorEnd,
+    InstanceSpecification,
+    Property,
+    Classifier,
+    Element,
+)
 
 from . import blocks
 from .. import sysml14
 
 
 __all__ = [
-    'AdjunctProperty', 'BindingConnector', 'Block', 'BoundReference',
-    'EndPathMultiplicity', 'ClassifierBehaviorProperty', 'ConnectorProperty',
-    'DistributedProperty', 'ElementPropertyPath', 'NestedConnectorEnd',
-    'ParticipantProperty', 'PropertySpecificType', 'ValueType',
-    'DirectedRelationshipPropertyPath']
+    "AdjunctProperty",
+    "BindingConnector",
+    "Block",
+    "BoundReference",
+    "EndPathMultiplicity",
+    "ClassifierBehaviorProperty",
+    "ConnectorProperty",
+    "DistributedProperty",
+    "ElementPropertyPath",
+    "NestedConnectorEnd",
+    "ParticipantProperty",
+    "PropertySpecificType",
+    "ValueType",
+    "DirectedRelationshipPropertyPath",
+]
 
 eSubpackages = []
 eSuperPackage = sysml14

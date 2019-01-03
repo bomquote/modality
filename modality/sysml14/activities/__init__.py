@@ -1,16 +1,42 @@
 # -*- coding: utf-8 -*-
 from .activities import getEClassifier, eClassifiers
 from .activities import name, nsURI, nsPrefix, eClass
-from .activities import Continuous, Rate, ControlOperator, Discrete, NoBuffer, Optional, Overwrite, Probability
+from .activities import (
+    Continuous,
+    Rate,
+    ControlOperator,
+    Discrete,
+    NoBuffer,
+    Optional,
+    Overwrite,
+    Probability,
+)
 
-from pyuml2.uml import ValueSpecification, ObjectNode, Parameter, InstanceSpecification, ActivityEdge, Behavior, Operation, ParameterSet
+from modality.pyuml2.uml import (
+    ValueSpecification,
+    ObjectNode,
+    Parameter,
+    InstanceSpecification,
+    ActivityEdge,
+    Behavior,
+    Operation,
+    ParameterSet,
+)
 
 from . import activities
 from .. import sysml14
 
 
-__all__ = ['Continuous', 'Rate', 'ControlOperator', 'Discrete',
-           'NoBuffer', 'Optional', 'Overwrite', 'Probability']
+__all__ = [
+    "Continuous",
+    "Rate",
+    "ControlOperator",
+    "Discrete",
+    "NoBuffer",
+    "Optional",
+    "Overwrite",
+    "Probability",
+]
 
 eSubpackages = []
 eSuperPackage = sysml14

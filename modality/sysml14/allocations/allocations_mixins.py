@@ -18,9 +18,9 @@ class AllocateMixin:
     def get_allocated_from(self, ref=None, result=None):
 
         raise NotImplementedError(
-            'operation get_allocated_from(...) not yet implemented')
+            "operation get_allocated_from(...) not yet implemented"
+        )
 
     def get_allocated_to(self, ref=None, result=None):
 
-        raise NotImplementedError(
-            'operation get_allocated_to(...) not yet implemented')
+        raise NotImplementedError("operation get_allocated_to(...) not yet implemented")

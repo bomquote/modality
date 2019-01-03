@@ -16,3 +16,14 @@ Patches and Suggestions
 ```````````````````````
 
 -
+
+Core Contributing Library Authors
+```````````````````````````````````
+modality.pyuml2
+- derived from pyuml2 repository at https://github.com/pyecore/pyuml2
+- Original work is Copyright (c) 2016-2018, Vincent Aranega
+- Licence: https://github.com/pyecore/pyuml2/blob/master/LICENCE
+modality.sysml14
+- derived from pyuml2 repository at https://github.com/pyecore/pyuml2
+- Original work is Copyright (c) 2016-2018, Vincent Aranega
+- Licence: https://github.com/pyecore/pyuml2/blob/master/LICENCE

@@ -3,13 +3,13 @@ from .constraintblocks import getEClassifier, eClassifiers
 from .constraintblocks import name, nsURI, nsPrefix, eClass
 from .constraintblocks import ConstraintBlock
 
-from pyuml2.uml import Class
+from modality.pyuml2.uml import Class
 
 from . import constraintblocks
 from .. import sysml14
 
 
-__all__ = ['ConstraintBlock']
+__all__ = ["ConstraintBlock"]
 
 eSubpackages = []
 eSuperPackage = sysml14
