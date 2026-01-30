@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/modality_img.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+.. image::  ![Modality](img/modality_img.jpg) 
 
 **A framework for creating hardware product test suites.**
 
