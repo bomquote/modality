@@ -1,4 +1,4 @@
-.. image::  ![Modality](img/modality_img.jpg) 
+.. image:: https://raw.githubusercontent.com/bomquote/modality/master/img/modality_img.jpg 
 
 **A framework for creating hardware product test suites.**
 
@@ -116,7 +116,7 @@ requirements, while validation ensures that user needs are met by the product.
 System/Subsystem:
 A `system` means a product.  `Subsystems` mean parts that compose the product.
 
-.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/system_subsystem.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+.. image:: https://raw.githubusercontent.com/bomquote/modality/master/img/system_subsystem.jpg
 
 
 Control model/Plant model:
@@ -125,13 +125,13 @@ Control model/Plant model:
 1. control models which control subsystems
 2. plant models which are controlled by control models
 
-.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/control_model_plant_model.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+.. image:: https://raw.githubusercontent.com/bomquote/modality/master/img/control_model_plant_model.jpg 
 
 
 Interface:
 An `interface` means a relation between plant models in a subsystem.
 
-.. image:: https://raw.githubusercontent.com/bmjjr/modality/master/img/subsystem_interfaces.jpg?token=AAgJc9an2d8HwNRHty-6vMZ94VfUGGSIks5b8VHbwA%3D%3D
+.. image:: https://raw.githubusercontent.com/bomquote/modality/master/img/subsystem_interfaces.jpg
 
 
 Acronyms:
